@@ -11,8 +11,8 @@ class MySpider:
     ALL_PAGE = 515
     INIT_URL = 'http://bjmx.xdf.cn/guowaidaxue/_%s____'
 
-    def __init__(self):
-        self.pool = threadpool.ThreadPool(50)
+    def __init__(self,thread_num):
+        self.pool = threadpool.ThreadPool(thread_num)
         # requests = threadpool.makeRequests(get_page, )
 
     def get_info(self):
@@ -33,5 +33,5 @@ class MySpider:
 
 
 if __name__ == '__main__':
-    spider = MySpider()
+    spider = MySpider(50)
     spider.start()
