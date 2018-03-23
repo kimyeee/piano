@@ -7,7 +7,7 @@ import os
 INIT_URL = 'http://bjmx.xdf.cn/guowaidaxue/_%s____'
 
 SETTINGS = {
-    'media_path': ''
+    'media_path': './'
 }
 
 
@@ -22,14 +22,15 @@ class MyNetworkSpider:
 
     def decoder(self, html, parse_device):
         soup = bs4.BeautifulSoup(html, parse_device)
-        return
+        return soup
 
     def downloader(self, url):
         page_html = requests.get(url)
         return page_html
 
-    def geter(self):
-        re
+    def geter(self,url):
+        file = requests.get(url)
+        return file
 
     def poster(self, url, data):
         page_data = requests.post(url, data=data)
@@ -48,6 +49,11 @@ class MyNetworkSpider:
         return
 
     def start(self):
+        self.test()
+        return
+
+    def test(self):
+        print(os.path.join(SETTINGS['media_path'], 'test.jpg'))
         return
 
     def run(self):
