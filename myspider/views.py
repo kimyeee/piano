@@ -1,3 +1,5 @@
+import json
+
 from django.shortcuts import render
 from django.db import models
 import time
@@ -150,7 +152,7 @@ class GetUniversitySpider(MyNetworkSpider):
                 'badge_img_id': self.count,
                 'badge_img_url': img,
             }
-            university['scores_dict'] = scores_dict
+            university['scores_dict'] = json.dumps(scores_dict)
             university_list.append(university)
             self.count += 1
 
