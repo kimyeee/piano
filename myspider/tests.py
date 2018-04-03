@@ -1,7 +1,36 @@
-from django.test import TestCase
+import xlwt
+import xlrd
+from xlutils.copy import copy
+import xlsxwriter
 
-# Create your tests here.
-import requests
+count_book = xlrd.open_workbook('university.xls')
+r_sheet = count_book.sheet_by_index(0)
 
-ret = requests.get('http://bjmx.xdf.cn/guowaidaxue/_1_caababc8f15c44f28daa4d6c733e64ad___')
-open('page_4_1.html','wb').write(ret.content)
+all_row = r_sheet.nrows
+all_col = r_sheet.ncols
+
+book = copy(count_book)
+w_sheet = book.get_sheet(0)
+for row in range(55):
+    for j in range(1,6):
+        print(r_sheet.row_values(row,j-1,j)[0])
+    # if r_sheet.row_values(row,0,1) == ['<br/>']:
+    #     print('no name ')
+#         w_sheet.write(row, 0, '无数据')
+# book.save('university.xls')
+
+###################################################################
+# book = xlsxwriter.Workbook('pict111.xlsx')
+#
+# sheet = book.add_worksheet('国外学校')
+# sheet.set_column(2, 2, 16)
+# for row in range(1, all_row ):
+#     sheet.set_row(row, 100)
+#     for col in range(all_col):
+#         cell_value = r_sheet.cell_value(row,col,)
+#         if col == 2:
+#             sheet.insert_image(row, 2, './lo/%s.jpg' % (row + 1))
+#         else:
+#             sheet.write(row,col,cell_value)
+#
+# book.close()
