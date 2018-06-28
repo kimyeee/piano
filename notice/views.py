@@ -64,5 +64,5 @@ def piano(request):
         # return HttpResponse(notice % (target_id, my_wechat, int(time.time()), msgtype, '说点啥呢。。。。'))
         ret = get_robot(request)
         return HttpResponse(notice % (target_id, my_wechat, int(time.time()), msgtype, ret))
-    return render(request,'index.html',{'msg':get_robot(request)})
+    return render(request, 'index.html', {'msg': get_robot(request)})
     # return redirect('http://mp.weixin.qq.com/s/Z1uMbza4BMUMnWcG-KS5Og')

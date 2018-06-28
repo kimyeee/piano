@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -25,8 +24,7 @@ SECRET_KEY = '^o!0_py8q0)6#=e59yy7!@+*==a$+agxb0+qtefsvr!gg%gxqb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.10.162','jazzpiano.iok.la']
-
+ALLOWED_HOSTS = ['192.168.10.162', 'jazzpiano.iok.la']
 
 # Application definition
 
@@ -39,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'notice.apps.NoticeConfig',
     'myspider',
+    'douban',
 ]
 
 MIDDLEWARE = [
@@ -72,20 +71,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'piano.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME':'db_blog',
-    'USER': 'root',
-    'PASSWORD': '',
-    'HOST': '127.0.0.1',
-    'PORT': 3306,
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'piano',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': 3306,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -105,7 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -118,7 +114,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
